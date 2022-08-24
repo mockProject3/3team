@@ -12,6 +12,11 @@ public class UserController {
     @Autowired
     private UserService joinService;
 
+    @RequestMapping("/")
+    public String home(Model model){
+        return "home";
+    }
+
     @RequestMapping("/register")
     public String signUp(Model model){
         return "join";
