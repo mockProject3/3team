@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>WELCOME</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <SCRIPT language="JavaScript">
+        function test(){
+            alert("쨘");
+        }
+    </SCRIPT>
 </head>
 <body>
-<div style="border:1px solid black; width: fit-content">zzzzzzzzzz</div>
+<div style="border:1px solid black; width: fit-content; height:fit-content;">
+    <div>회원가입</div>
+    <form action="/register">
+    <input type="text" placeholder="이메일" name="email"/> <input type="button" onclick="check()">Check</input><br/>
+    <input type="text" placeholder="이름" name="name"/> <br/>
+    <input type="text" placeholder="연락처" name="phone"/> <br/>
+    <input type="password" placeholder="비밀번호" name="pwd"/><br/>
+    <input type="password" placeholder="비밀번호 확인" name="pwd2"/><br/>
+    <input type="submit">회원가입</input>
+    </form>
+</div>
 </body>
 </html>
