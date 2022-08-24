@@ -23,4 +23,12 @@ public class UserController {
                        @RequestParam("pwd2") String pwd2, Model model) throws Exception {
         return "join";
     }
+
+    @RequestMapping("/login")
+    public String login(Model model) {
+
+        return "login";
+    }
+
+
 }
