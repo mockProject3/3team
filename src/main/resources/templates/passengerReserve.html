@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="passenger_list" border="1">
+    <colgroup>
+        <col width="15%"/>
+        <col width="15%"/>
+    </colgroup>
+    <thead>
+    <tr>
+        <th scope="col">승객이름</th>
+        <th scope="col">승객전화번호</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="name : ${names}" >
+        <tr>
+            <td th:text="${name}"></td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</body>
+</html>
