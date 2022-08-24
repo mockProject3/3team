@@ -21,10 +21,10 @@ public class ScheduleController {
     }
 
     @RequestMapping("/schedule/search")
-    public String reservationPage(@RequestParam String departure, @RequestParam String arrival, @RequestParam("departureDate") @DateTimeFormat(pattern = "MM-dd-yyyy") Date departureDate, Model model){
+    public String reservationPage(@RequestParam String departure, @RequestParam String arrival, @RequestParam("departureDate") @DateTimeFormat(pattern = "MM-dd-yyyy") String departureDate, Model model){
         System.out.println();
         String d = departure;
-        ArrayList<Schedule> scheduleArrayList = scheduleService.select(departure,arrival);
+        ArrayList<Schedule> scheduleArrayList = scheduleService.select(departure,arrival,departureDate);
         model.addAttribute("schedules",scheduleArrayList);
 
         return "scheduleList";

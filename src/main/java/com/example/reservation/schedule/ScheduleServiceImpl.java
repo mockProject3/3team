@@ -10,7 +10,7 @@ public class ScheduleServiceImpl implements ScheduleService{
    @Autowired
    ScheduleMapper scheduleMapper;
     @Override
-    public ArrayList<Schedule> select(String departure, String arrival) {
-        return scheduleMapper.select(departure,arrival);
+    public ArrayList<Schedule> select(String departure, String arrival,  String departureDate) {
+        return scheduleMapper.select(departure,arrival,departureDate);
     }
 }
