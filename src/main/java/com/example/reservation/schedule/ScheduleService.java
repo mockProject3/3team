@@ -4,4 +4,5 @@ import java.util.ArrayList;
 
 public interface ScheduleService {
     ArrayList<Schedule> select(String departure,  String arrival, String departureDate);
+    Schedule selecByScheduleNum(int scheduleNum);
 }

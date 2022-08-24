@@ -13,4 +13,9 @@ public class ScheduleServiceImpl implements ScheduleService{
     public ArrayList<Schedule> select(String departure, String arrival,  String departureDate) {
         return scheduleMapper.select(departure,arrival,departureDate);
     }
+
+    @Override
+    public Schedule selecByScheduleNum(int scheduleNum) {
+        return scheduleMapper.selectByScheduleNum(scheduleNum);
+    }
 }

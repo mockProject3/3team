@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,16 +7,30 @@
 <body>
 <form action="/schedule/search">
 출발지 : <select name="departure" id="departure">
-    <option value="SEL">김포</option>
+    <option value="ICN">인천</option>
+    <option value="GMP">김포</option>
     <option value="KWJ">광주</option>
-    <option value="JEJU">제주도</option>
+    <option value="CJU">제주</option>
+    <option value="RSU">여수</option>
+    <option value="CJJ">청주</option>
+    <option value="TAE">대구</option>
 </select>
 도착지 :<select name="arrival" id="arrival">
-    <option value="SEL">김포</option>
+    <option value="ICN">인천</option>
+    <option value="GMP">김포</option>
     <option value="KWJ">광주</option>
-    <option value="JEJU">제주도</option>
+    <option value="CJU">제주</option>
+    <option value="RSU">여수</option>
+    <option value="CJJ">청주</option>
+    <option value="TAE">대구</option>
 </select>
 출발날짜: <input type="date" name="departureDate"/>
+    탑승인원:
+    <select name="passengerCount" id="passengerCount">
+    <th:block th:each="num : ${#numbers.sequence(1,10)}">
+        <option th:text="${num}">[[${num} ]]</option>
+</th:block>
+    </select>
     <input type="submit" value="검색">
 </form>
 </body>

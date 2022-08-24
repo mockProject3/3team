@@ -21,12 +21,17 @@ public class ScheduleController {
     }
 
     @RequestMapping("/schedule/search")
-    public String reservationPage(@RequestParam String departure, @RequestParam String arrival, @RequestParam("departureDate") @DateTimeFormat(pattern = "MM-dd-yyyy") String departureDate, Model model){
-        System.out.println();
-        String d = departure;
+    public String reservationPage(@RequestParam String departure, @RequestParam String arrival, @RequestParam("departureDate") @DateTimeFormat(pattern = "MM-dd-yyyy") String departureDate, @RequestParam String passengerCount, Model model){
         ArrayList<Schedule> scheduleArrayList = scheduleService.select(departure,arrival,departureDate);
         model.addAttribute("schedules",scheduleArrayList);
+        model.addAttribute("arrival", arrival);
+        model.addAttribute("departure", departure);
+        model.addAttribute("departureDate", departureDate);
+        model.addAttribute("passengerCount", passengerCount);
 
         return "scheduleList";
     }
+
+
+
 }

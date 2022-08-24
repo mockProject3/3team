@@ -10,9 +10,9 @@ public class Schedule {
     private String planeName;
     private String departureDate;
     private String departureTime;
-    private String endDate;
-    private String endTime;
+    private String arrivalTime;
     private String departure;
     private String arrival;
+
 
 }

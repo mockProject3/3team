@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>예약</title>
+</head>
+<body>
+출발지 : [[ ${schedule.departure} ]] <br>
+도착지 : [[ ${schedule.arrival} ]] <br>
+출발날짜 : [[ ${schedule.departureDate} ]] <br>
+출발시간 : [[ ${schedule.departureTime} ]] <br>
+도착시간 : [[ ${schedule.arrivalTime} ]] <br>
+탑승인원 : [[ ${passengerCount} ]] <br><br><br>
+<hr>
+<form action="">
+    <th:block th:each="num : ${#numbers.sequence(1,passengerCount)}">
+        탑승자 이름: <input type="text" th:name="|passName${num}|">
+        탑승자 전화번호 : <input type="text" th:name="|passTel${num}|"> <br><br>
+    </th:block>
+
+    <input type="submit" value="예매하기">>
+</form>
+</body>
+</html>
