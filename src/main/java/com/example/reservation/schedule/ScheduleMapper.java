@@ -7,6 +7,6 @@ import java.util.ArrayList;
 @Mapper
 public interface ScheduleMapper {
     @Select("select * from schedule where departure = #{departure} and arrival = #{arrival}")
-    ArrayList<Schedule> select(String departure,  String arrival);
+    ArrayList<Schedule> select(String departure,  String arrival, String departureDate);
 
 }

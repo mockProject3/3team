@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 public class Schedule {
     private int scheduleNum;
     private String planeName;
-    private String startTime;
+    private String departureDate;
+    private String departureTime;
+    private String endDate;
     private String endTime;
     private String departure;
     private String arrival;
