@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h2>항공편 선택</h2>
+    출발지 : [[ ${departure} ]] <br>
+    도착지 : [[ ${arrival} ]] <br>
+    출발날짜 : [[ ${departureDate} ]] <br>
+    탑승인원 : [[ ${passengerCount} ]] <br>
+    <table class="schedule_list" border="1">
+        <colgroup>
+            <col width="15%"/>
+            <col width="15%"/>
+            <col width="20%"/>
+            <col width="20%"/>
+        </colgroup>
+        <thead>
+        <tr>
+            <th scope="col">항공편</th>
+            <th scope="col">출발시간</th>
+            <th scope="col">도착시간</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="schedule : ${schedules}">
+                <tr>
+               <td th:text="${schedule.scheduleNum}"></td>
+                <td th:text="${schedule.departureTime}"></td>
+                <td th:text="${schedule.arrivalTime}"></td>
+                    <td><a th:href="@{/passenger/reservePage(scheduleNum=${schedule.scheduleNum},passengerCount =${passengerCount} )}">예약하기</a></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
