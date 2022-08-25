@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #title {
+        font-size: 15px;
+        font-weight: bolder;
+        margin-bottom: 20px;
+    }
+
+    #content {
+        font-size: 15px;
+        margin-bottom: 40px;
+    }
+
+    #textinput {
+        height: 20px;
+        width: 450px;
+        font-size: 15px;
+    }
+
+    #btn {
+        border: 0px solid black;
+        border-radius: 5px;
+        color: white;
+        background-color: #00aaff;
+        font-size: 20px;
+        height: 30px;
+        width: 100px;
+        margin-bottom: 20px;
+        margin-left: 1%;
+    }
+
+    #btn:hover {
+        cursor: pointer;
+        background-color: blue;
+    }
+
+    #bigTitle {
+        margin-left: 35%;
+        border: 1px solid #00aaff;
+        font-weight: bolder;
+        font-size: 30px;
+        height: fit-content;
+        width: fit-content;
+        padding: 10px;
+        margin-bottom: 30px;
+        margin-top: 2%;
+        color: white;
+        background-color: #00aaff;
+    }
+
+    #label {
+        width: 100%;
+        height: fit-content;
+        background-color: #00aaff;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-weight: lighter;
+        color: white;
+        margin-bottom: 40px;
+        padding-left: 20px;
+    }
+
+    #box {
+        margin-left: 3%;
+    }
+
+    #container {
+        overflow: hidden;
+    }
+</style>
+<body>
+<div id="container">
+    <div id="bigTitle">홈페이지 이용 편의성 조사</div>
+    <div id="label">
+        <div>아시아나 홈페이지를 방문해 주시는 고객여러분들께 감사드립니다.</div>
+        <br/>
+        <div>본 설문조사는 홈페이지 이용 편의성 향상을 위한 소중한 자료로 쓰여질 예정입니다. (소요시간 1분)</div>
+    </div>
+    <form action="/commit" id="box">
+        <div th:each=" survey, s : ${surveys}">
+
+            <div id="title"> [[${s.index+1}]] : [[${survey.title}]]</div>
+
+            <div th:switch="${survey.type}" id="content">
+        <span th:case="0">
+            <input type="radio" th:name="|ans${s.index+1}|" value="1"> 매우 불만족
+            <input type="radio" th:name="|ans${s.index+1}|" value="2">  불만
+            <input type="radio" th:name="|ans${s.index+1}|" value="3"> 대체로 만족
+            <input type="radio" th:name="|ans${s.index+1}|" value="4"> 만족
+            <input type="radio" th:name="|ans${s.index+1}|" value="5"> 매우 만족
+
+        </span>
+                <span th:case="1">
+            <input type="text" th:name="|ans${s.index+1}|" id="textinput">
+        </span>
+            </div>
+        </div>
+        <input type="submit" value="제출" id="btn">
+    </form>
+    <div id="label">설문에 응해주셔서 감사합니다.</div>
+</div>
+</body>
+</html>
