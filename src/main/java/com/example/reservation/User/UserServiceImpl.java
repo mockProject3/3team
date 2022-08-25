@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(String id, String name, String tel, String birth, String pwd) {
-
+        userMapper.addUsers(id,name,tel,birth,pwd);
     }
 
     @Override
