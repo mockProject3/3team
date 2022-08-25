@@ -39,6 +39,7 @@ CREATE TABLE ReservationSeat (
    scheduleNum   integer   NULL
 );
 
+
 CREATE TABLE Passenger (
    passNum   integer   NULL,
    ticketNum   integer   NULL,
