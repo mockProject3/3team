@@ -14,7 +14,9 @@ public class Passenger {
     private int passNum;
     private String passName;
     private String passTel;
+    private int ticketNum;
+    private int scheduleNum;
 
-    private List<Passenger> passengerList;
+
 
 }

@@ -1,5 +1,7 @@
 package com.example.reservation.Passenger;
 
+import com.example.reservation.Reservation.Reservation;
+import com.example.reservation.Reservation.ReservationService;
 import com.example.reservation.schedule.Schedule;
 import com.example.reservation.schedule.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ public class PassengerController {
     @Autowired
     ScheduleService scheduleService;
 
+    @Autowired
+    ReservationService reservationService;
+
     @RequestMapping("/passenger/reservePage")
     public String reservePage(@RequestParam String passengerCount, @RequestParam String scheduleNum, Model model){
 
@@ -25,16 +30,5 @@ public class PassengerController {
         return "passengerReservePage";
 
     }
-    @RequestMapping("/passenger/reserve")
-    public String reserve(@RequestParam String passName, @RequestParam String passTel,Model model){
-        ArrayList<Passenger> passengers = new ArrayList<>();
-        String [] names = passName.split(",");
-        String [] tels = passTel.split(",");
 
-        model.addAttribute("names", names);
-        model.addAttribute("tels", tels);
-
-        return "passengerReserve";
-
-    }
 }
