@@ -15,7 +15,8 @@ public class UserController {
     private UserService joinService;
 
     @RequestMapping("/")
-    public String home(Model model){
+    public String home(@SessionAttribute(name = "user", required = false)User user, Model model){
+        model.addAttribute("user", user);
         return "home";
     }
 
