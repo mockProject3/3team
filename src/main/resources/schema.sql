@@ -10,11 +10,11 @@
 --    PRIMARY KEY(scheduleNum)
 --);
 
-<<<<<<< HEAD
+
 CREATE TABLE plane (
 	planeName	varchar2(30)	NULL,
 	planeCompany	varchar2(30)	NULL
-=======
+
 CREATE TABLE Plane (
    planeName   varchar2(30)   NULL,
    planeCompany   varchar2(30)   NULL
@@ -77,7 +77,7 @@ CREATE TABLE users(
                          userName  varchar(255)   ,
                          userTel  varchar(255)  ,
                          userBirth   varchar(255)
->>>>>>> 955b1e9e6bc8e2503e9b83845e45df5830af44f9
+
 );
 
 CREATE TABLE schedule (
@@ -160,10 +160,7 @@ values ('ICN', 'CJU', '1A7777', '2022-08-30', '11:05', '15:15');
 
 insert into schedule(departure,arrival,planeName,departureDate, departureTime, arrivalTime)
 values ('USN', 'ICN', '5C3300', '2022-09-10', '10:05', '13:15');
-=======
 
-
->>>>>>> 955b1e9e6bc8e2503e9b83845e45df5830af44f9
 
 
 --비행기 종류
