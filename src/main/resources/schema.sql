@@ -10,9 +10,74 @@
 --    PRIMARY KEY(scheduleNum)
 --);
 
+<<<<<<< HEAD
 CREATE TABLE plane (
 	planeName	varchar2(30)	NULL,
 	planeCompany	varchar2(30)	NULL
+=======
+CREATE TABLE Plane (
+   planeName   varchar2(30)   NULL,
+   planeCompany   varchar2(30)   NULL
+);
+
+CREATE TABLE Schedule (
+   scheduleNum   integer   NOT NULL AUTO_INCREMENT,
+   planeName   varchar2(30)   NULL,
+   departureDate   varchar2(30)   NULL,
+   departureTime   varchar2(30)   NULL,
+   arrivalTime   varchar2(30)   NULL,
+   departure   varchar2(30)   NULL,
+   arrival   varchar2(30)   NULL
+);
+
+CREATE TABLE Reservation (
+   ticketNum   integer   NULL,
+   scheduleNum   integer   NULL,
+   planeName   varchar2(30)   NULL,
+   ticketDate   varchar(200)   NULL,
+   ticketPrice   integer   NULL,
+   userId   varchar(200)   NULL
+);
+
+CREATE TABLE Seat (
+   setNum   varchar2(30)   NULL,
+   planeName   varchar2(30)   NULL,
+   setGrade   varchar2(30)   NULL,
+   setPrice   integer   NULL
+);
+
+CREATE TABLE ReservationSeat (
+   reservatedSeat   varchar2(30)   NULL,
+   setNum   varchar2(30)   NULL,
+   planeName   varchar2(30)   NULL,
+   passNum   integer   NULL,
+   ticketNum   integer   NULL,
+   scheduleNum   integer   NULL
+);
+
+CREATE TABLE users (
+   userId   varchar(20)   NULL,
+   userPw   varchar(20)   NULL,
+   userName   varchar(10)   NULL,
+   userTel   integer   NULL,
+   userBirth   varchar(20)   NULL
+);
+
+CREATE TABLE Passenger (
+   passNum   integer   NULL,
+   ticketNum   integer   NULL,
+   scheduleNum   integer   NULL,
+   passTel   varchar2(200)   NULL,
+   passName   varchar2(30)   NULL
+);
+
+CREATE TABLE users(
+                         userId   varchar(255) ,
+                         userPw  varchar(255),
+                         userName  varchar(255)   ,
+                         userTel  varchar(255)  ,
+                         userBirth   varchar(255)
+>>>>>>> 955b1e9e6bc8e2503e9b83845e45df5830af44f9
 );
 
 CREATE TABLE schedule (
@@ -71,6 +136,7 @@ CREATE TABLE passenger (
 insert into schedule(departure,arrival,planeName,departureDate, departureTime, arrivalTime)
 values ('GMP', 'CJU', 'OZ8901', '2022-08-20', '08:10', '20:30');
 
+<<<<<<< HEAD
 insert into schedule(departure,arrival,planeName,departureDate, departureTime, arrivalTime)
 values ('GMP', 'CJU', 'OZ7901', '2022-08-24', '06:05', '07:15');
 
@@ -94,6 +160,10 @@ values ('ICN', 'CJU', '1A7777', '2022-08-30', '11:05', '15:15');
 
 insert into schedule(departure,arrival,planeName,departureDate, departureTime, arrivalTime)
 values ('USN', 'ICN', '5C3300', '2022-09-10', '10:05', '13:15');
+=======
+
+
+>>>>>>> 955b1e9e6bc8e2503e9b83845e45df5830af44f9
 
 
 --비행기 종류

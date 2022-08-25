@@ -14,17 +14,9 @@
 탑승인원 : [[ ${passengerCount} ]] <br><br><br>
 <hr>
 
-<!--<form:form commandName="passenger" action="/passenger/reserve">
-    <th:block th:each="num : ${#numbers.sequence(1,passengerCount)}">
-        탑승자 이름: <input type="text" th:name="|passengerList[${num}].passName|">
-        탑승자 전화번호 : <input type="text" th:name="|passengerList[${num}].passTel|"> <br><br>
-    </th:block>
 
-    <input type="submit" value="예매하기">>
-</form:form>
--->
-
-<form action="/passenger/reserve" >
+<form action="/reservation/reserve" >
+    <input type="hidden" th:value="${schedule.scheduleNum}" name="scheduleNum">
     <th:block th:each="num : ${#numbers.sequence(1,passengerCount)}">
         탑승자 이름: <input type="text" name="passName">
         탑승자 전화번호 : <input type="text" name="passTel"> <br><br>

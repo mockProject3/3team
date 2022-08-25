@@ -27,7 +27,7 @@
 출발날짜: <input type="date" name="departureDate"/>
     탑승인원:
     <select name="passengerCount" id="passengerCount">
-    <th:block th:each="num : ${#numbers.sequence(1,10)}">
+    <th:block th:each="num : ${#numbers.sequence(1,5)}">
         <option th:text="${num}">[[${num} ]]</option>
 </th:block>
     </select>

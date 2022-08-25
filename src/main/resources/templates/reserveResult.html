@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>예약결과</h2>
+예약번호: [[ ${reservation.ticketNum} ]]
+예약시간: [[ ${reservation.ticketDate} ]]
+
+<hr>
+출발지 : [[ ${schedule.departure} ]] <br>
+도착지 : [[ ${schedule.arrival} ]] <br>
+출발날짜 : [[ ${schedule.departureDate} ]] <br>
+출발시간 : [[ ${schedule.departureTime} ]] <br>
+도착시간 : [[ ${schedule.arrivalTime} ]] <br>
+ <br><br><br>
+
+
+<hr>
+<table class="passenger_list" border="1">
+    <colgroup>
+        <col width="15%"/>
+        <col width="15%"/>
+    </colgroup>
+    <thead>
+    <tr>
+        <th scope="col">승객이름</th>
+        <th scope="col">승객전화번호</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="passenger : ${passengers}" >
+        <tr>
+            <td th:text="${passenger.passName}"></td>
+            <td th:text="${passenger.passTel}"></td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</body>
+</html>
