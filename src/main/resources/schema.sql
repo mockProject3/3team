@@ -50,7 +50,7 @@ CREATE TABLE ReservationSeat (
    scheduleNum   integer   NULL
 );
 
-CREATE TABLE users (
+CREATE TABLE Users (
    userId   varchar(20)   NULL,
    userPw   varchar(20)   NULL,
    userName   varchar(10)   NULL,
@@ -66,13 +66,6 @@ CREATE TABLE Passenger (
    passName   varchar2(30)   NULL
 );
 
-CREATE TABLE users(
-                         userId   varchar(255) ,
-                         userPw  varchar(255),
-                         userName  varchar(255)   ,
-                         userTel  varchar(255)  ,
-                         userBirth   varchar(255)
-);
 
 
 
