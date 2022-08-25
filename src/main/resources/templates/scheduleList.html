@@ -29,7 +29,7 @@
         <tbody>
         <th:block th:each="schedule : ${schedules}">
                 <tr>
-               <td th:text="${schedule.scheduleNum}"></td>
+               <td th:text="${schedule.planeName}"></td>
                 <td th:text="${schedule.departureTime}"></td>
                 <td th:text="${schedule.arrivalTime}"></td>
                     <td><a th:href="@{/passenger/reservePage(scheduleNum=${schedule.scheduleNum},passengerCount =${passengerCount} )}">예약하기</a></td>
