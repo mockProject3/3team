@@ -47,8 +47,5 @@ public class ReservationController {
         return "reserveResult";
 
     }
-    @RequestMapping("/reservation/list")
-    public String reservationList(Model model){
 
-    }
 }

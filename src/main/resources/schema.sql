@@ -1,3 +1,7 @@
+CREATE TABLE Plane (
+   planeName   varchar2(30)   NULL,
+   planeCompany   varchar2(30)   NULL
+);
 
 CREATE TABLE Schedule(
        scheduleNum  int NOT NULL AUTO_INCREMENT,
@@ -41,4 +45,11 @@ CREATE TABLE Passenger (
    scheduleNum   integer   NULL,
    passTel   varchar2(200)   NULL,
    passName   varchar2(30)   NULL
+);
+CREATE TABLE users (
+   userId   varchar(20)   NULL,
+   userPw   varchar(20)   NULL,
+   userName   varchar(10)   NULL,
+   userTel   integer   NULL,
+   userBirth   varchar(20)   NULL
 );
