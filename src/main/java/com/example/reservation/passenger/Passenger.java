@@ -1,10 +1,8 @@
-package com.example.reservation.Passenger;
+package com.example.reservation.passenger;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Data
 @NoArgsConstructor

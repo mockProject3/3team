@@ -1,6 +1,4 @@
-package com.example.reservation.Reservation;
-
-import com.example.reservation.schedule.Schedule;
+package com.example.reservation.reservation;
 
 import java.util.ArrayList;
 

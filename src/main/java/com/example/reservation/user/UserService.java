@@ -1,6 +1,5 @@
-package com.example.reservation.User;
+package com.example.reservation.user;
 
-import java.sql.SQLException;
 import java.util.Map;
 
 public interface UserService {

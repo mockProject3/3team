@@ -1,4 +1,4 @@
-package com.example.reservation.Passenger;
+package com.example.reservation.passenger;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

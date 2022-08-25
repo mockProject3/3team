@@ -54,3 +54,16 @@ CREATE TABLE users (
    userTel   integer   NULL,
    userBirth   varchar(20)   NULL
 );
+
+CREATE TABLE t_board (
+     board_id INT AUTO_INCREMENT COMMENT '글 번호',
+     title VARCHAR(300) COMMENT '제목',
+     contents TEXT COMMENT '내용',
+     hit_cnt SMALLINT DEFAULT '0' COMMENT '조회수',
+     created_At DATETIME COMMENT '작성시간',
+     creator_id VARCHAR(50) COMMENT '작성자',
+     updated_At DATETIME DEFAULT NULL COMMENT '수정시간',
+     updater_id VARCHAR(50) DEFAULT NULL COMMENT '수정자',
+     is_deleted CHAR(1) DEFAULT 'N' COMMENT '삭제 여부',
+     PRIMARY KEY (board_id)
+);

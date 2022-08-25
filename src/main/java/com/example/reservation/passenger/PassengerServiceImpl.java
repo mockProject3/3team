@@ -1,4 +1,4 @@
-package com.example.reservation.Passenger;
+package com.example.reservation.passenger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.example.reservation.Reservation;
+package com.example.reservation.reservation;
 
 import com.example.reservation.schedule.Schedule;
 import lombok.AllArgsConstructor;

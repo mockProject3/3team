@@ -1,6 +1,4 @@
-package com.example.reservation.Passenger;
-
-import org.springframework.stereotype.Service;
+package com.example.reservation.passenger;
 
 import java.util.ArrayList;
 

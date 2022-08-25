@@ -1,16 +1,12 @@
-package com.example.reservation.Passenger;
+package com.example.reservation.passenger;
 
-import com.example.reservation.Reservation.Reservation;
-import com.example.reservation.Reservation.ReservationService;
+import com.example.reservation.reservation.ReservationService;
 import com.example.reservation.schedule.Schedule;
 import com.example.reservation.schedule.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class PassengerController {

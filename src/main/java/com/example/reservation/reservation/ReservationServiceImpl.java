@@ -1,4 +1,4 @@
-package com.example.reservation.Reservation;
+package com.example.reservation.reservation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

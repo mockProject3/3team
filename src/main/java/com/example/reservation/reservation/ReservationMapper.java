@@ -1,6 +1,5 @@
-package com.example.reservation.Reservation;
+package com.example.reservation.reservation;
 
-import com.example.reservation.schedule.Schedule;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

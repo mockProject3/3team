@@ -1,4 +1,4 @@
-package com.example.reservation.User;
+package com.example.reservation.user;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -15,6 +15,6 @@ public interface UserMapper {
             "values(#{id},#{pwd},#{name},#{tel},#{birth})")
     void addUsers(String id, String name, String tel, String birth, String pwd);
 
-    @Select("select * from users where userId = #{userId} and userPw = #{userPw}")
+    //@Select("select * from users where userId = #{userId} and userPw = #{userPw}")
     public User login(Map<String, String> map);
 }

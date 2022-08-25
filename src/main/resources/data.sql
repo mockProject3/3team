@@ -41,3 +41,16 @@ insert into plane(planeName,planeCompany) values ('5C3300', 'ASIANA');
 insert into users(userId, userPw, userName, userTel, userBirth)
 values ('siwan','siwan', 'MinSiwan', '01012341234', '830101');
 
+
+INSERT INTO t_board(
+                  title,
+                  contents,
+                  created_At,
+                  creator_id
+                ) VALUES (
+                  'asdfsdf',
+                  'afadsfds',
+                  NOW(),
+                  'admin'
+                )
+

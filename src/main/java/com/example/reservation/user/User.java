@@ -1,8 +1,7 @@
-package com.example.reservation.User;
+package com.example.reservation.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
