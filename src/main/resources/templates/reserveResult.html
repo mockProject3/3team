@@ -10,7 +10,8 @@
     <title>Title</title>
 </head>
 <body>
-<div class="container">
+<th:block th:replace="~{header::header}"/>
+<div class="container" style="margin-top:100px">
 <h2>예약결과</h2><br>
 예약번호: [[ ${reservation.ticketNum} ]] <br>
 예약시간: [[ ${reservation.ticketDate} ]]

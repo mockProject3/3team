@@ -73,17 +73,18 @@ public class ReservationController {
 
         return  "index";
     }
-   /* @RequestMapping("/reservation/detail")
-    public String reservationDetail(@RequestParam String ticketId, Model model){
-        *//*ArrayList<Reservation> reservations;
-        reservations = reservationService.selectByUserId(userId);
-        for (int i = 0; i < reservations.size(); i++){
-            Schedule schedule = scheduleService.selecByScheduleNum(reservations.get(i).getScheduleNum());
-            reservations.get(i).setSchedule(schedule);
-        }
-        model.addAttribute("reservations", reservations);
-        return  "reservationList";*//*
-    }*/
+    @RequestMapping("/reservation/detail")
+    public String reservationDetail(@RequestParam int ticketNum, Model model){
+        Reservation reservation = reservationService.selectByTicketNum(ticketNum);
+        ArrayList<Passenger> passengers = passengerService.selectByTicketNum(ticketNum);
+        Schedule schedule = scheduleService.selecByScheduleNum(reservation.getScheduleNum());
+
+        model.addAttribute("reservation", reservation);
+        model.addAttribute("passengers", passengers);
+        model.addAttribute("schedule", schedule);
+
+        return "reserveResult";
+    }
 
 
 }
