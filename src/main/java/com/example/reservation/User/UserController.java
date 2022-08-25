@@ -3,9 +3,7 @@ package com.example.reservation.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
@@ -41,28 +39,30 @@ public class UserController {
     }
 
     @RequestMapping("/logincheck")
+    @ResponseBody
     public String login(@RequestParam Map<String, String> map, Model model, HttpSession session) {
 
         try{
-            if(map.get("userId") == null || map.get("userPw") == null ) {
-                model.addAttribute("msg", "아이디 또는 비밀번호를 입력해주세요");
-                return "error";
+            if(map.get("userId").isEmpty() || map.get("userPw").isEmpty() ) {
+               // model.addAttribute("msg", "아이디 또는 비밀번호를 입력해주세요");
+//                return "<script> alert('아이디 또는 비밀번호를 입력해주세요'); location.href='/login';</script>";
+                return "<script> alert('아이디 또는 비밀번호를 입력해주세요'); location.href='/login'; </script>";
             }
             User user = joinService.login(map);
             if(user != null ) {
                 session.setAttribute("user", user);
             }else {
-                model.addAttribute("msg", "아이디 또는 비밀번호가 올바르지 않습니다.");
-                return "error";
+              //  model.addAttribute("msg", "아이디 또는 비밀번호가 올바르지 않습니다.");
+                return "<script> alert('아이디 또는 비밀번호가 올바르지 않습니다.'); location.href='/login'; </script>";
             }
 
         }catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("msg", "로그인 중 문제가 발생했습니다.");
-            return "error";
+           // model.addAttribute("msg", "로그인 중 문제가 발생했습니다.");
+            return "<script> alert('로그인 중 문제가 발생했습니다.'); location.href='/login'; </script>";
         }
 
-        return "redirect:/";
+        return "<script> location.href='/';</script>";
     }
 
     @RequestMapping("/logout")
