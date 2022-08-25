@@ -25,20 +25,25 @@ public class ReservationServiceImpl implements ReservationService{
     }*/
 
     @Override
-    public int insert(int scheduleNum, String planeName) {
+    public int insert(int scheduleNum, String planeName,String userId) {
         Random random = new Random();
         int ticketNum = random.nextInt(2147483);
 
         LocalDateTime now = LocalDateTime.now();         // 현재 날짜/시간 출력
-        String ticketDate = now.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 ss초"));
+        String ticketDate = now.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH:mm:ss"));
 
-        reservationMapper.insert(ticketNum,scheduleNum, planeName, ticketDate);
+        reservationMapper.insert(ticketNum,scheduleNum, planeName, ticketDate, userId);
         return ticketNum;
     }
 
     @Override
     public Reservation selectByTicketNum(int ticketNum) {
         return reservationMapper.selectByTicketNum(ticketNum);
+    }
+
+    @Override
+    public ArrayList<Reservation> selectByUserId(String userId) {
+        return reservationMapper.selectByUserId(userId);
     }
 
 }

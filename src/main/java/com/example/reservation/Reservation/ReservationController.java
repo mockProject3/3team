@@ -2,6 +2,7 @@ package com.example.reservation.Reservation;
 
 import com.example.reservation.Passenger.Passenger;
 import com.example.reservation.Passenger.PassengerService;
+import com.example.reservation.User.User;
 import com.example.reservation.schedule.Schedule;
 import com.example.reservation.schedule.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.rmi.server.RemoteRef;
 import java.util.ArrayList;
 
@@ -25,10 +29,14 @@ public class ReservationController {
     PassengerService passengerService;
 
     @RequestMapping("/reservation/reserve")
-    public String reserve(@RequestParam String passName, @RequestParam String passTel,@RequestParam int scheduleNum, Model model){
+    public String reserve(HttpServletRequest request, @RequestParam String passName, @RequestParam String passTel, @RequestParam int scheduleNum, Model model){
+
+
+        User user = (User) request.getSession().getAttribute("user");
+
         //예매 테이블 데이터 우선 생성
         Schedule schedule = scheduleService.selecByScheduleNum(scheduleNum);
-        int ticketNum = reservationService.insert(schedule.getScheduleNum(), schedule.getPlaneName());
+        int ticketNum = reservationService.insert(schedule.getScheduleNum(), schedule.getPlaneName(),user.getUserId());
         Reservation reservation = reservationService.selectByTicketNum(ticketNum);
 
         //예매 후 생성된 예매번호를 이용해서 승객 데이터 삽입
@@ -47,5 +55,35 @@ public class ReservationController {
         return "reserveResult";
 
     }
+    @RequestMapping("/reservation/list")
+    public String reservationList(HttpServletRequest request, Model model){
+        ArrayList<Reservation> reservations;
+        User user = (User) request.getSession().getAttribute("user");
+        String userId= user.getUserId();
+        reservations = reservationService.selectByUserId(userId);
+        for (int i = 0; i < reservations.size(); i++){
+            Schedule schedule = scheduleService.selecByScheduleNum(reservations.get(i).getScheduleNum());
+            reservations.get(i).setSchedule(schedule);
+        }
+        model.addAttribute("reservations", reservations);
+        return  "reservationList";
+    }
+    @RequestMapping("/TST2")
+    public String TE(Model model){
+
+        return  "index";
+    }
+   /* @RequestMapping("/reservation/detail")
+    public String reservationDetail(@RequestParam String ticketId, Model model){
+        *//*ArrayList<Reservation> reservations;
+        reservations = reservationService.selectByUserId(userId);
+        for (int i = 0; i < reservations.size(); i++){
+            Schedule schedule = scheduleService.selecByScheduleNum(reservations.get(i).getScheduleNum());
+            reservations.get(i).setSchedule(schedule);
+        }
+        model.addAttribute("reservations", reservations);
+        return  "reservationList";*//*
+    }*/
+
 
 }
