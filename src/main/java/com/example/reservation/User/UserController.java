@@ -44,7 +44,7 @@ public class UserController {
     public String login(@RequestParam Map<String, String> map, Model model, HttpSession session) {
 
         try{
-            if(map.get("userid") == null || map.get("userpwd") == null ) {
+            if(map.get("userId") == null || map.get("userPw") == null ) {
                 model.addAttribute("msg", "아이디 또는 비밀번호를 입력해주세요");
                 return "error";
             }
@@ -62,7 +62,13 @@ public class UserController {
             return "error";
         }
 
-        return "/";
+        return "redirect:/";
+    }
+
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) throws Exception{
+        session.invalidate();
+        return "redirect:/";
     }
 
 

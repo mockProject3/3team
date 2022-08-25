@@ -10,12 +10,18 @@ CREATE TABLE schedule(
     PRIMARY KEY(scheduleNum)
 );
 
+CREATE TABLE users(
+                         userId   varchar(255) ,
+                         userPw  varchar(255),
+                         userName  varchar(255)   ,
+                         userTel  varchar(255)  ,
+                         userBirth   varchar(255)
+);
 
-insert into schedule(departure,arrival,planeName,departureDate, departureTime, arrivalTime)
-values ('GMP', 'CJU', 'OZ8901', '2022-08-24', '06:05', '07:15');
 
-insert into schedule(departure,arrival,planeName,departureDate, departureTime, arrivalTime)
-values ('GMP', 'CJU', 'OZ8023', '2022-08-24', '18:45', '19:55');
+
+
+
 
 
 
