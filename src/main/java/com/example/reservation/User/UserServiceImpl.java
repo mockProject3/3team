@@ -13,8 +13,8 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-    public boolean checkId(String email) throws Exception {
-        return true;
+    public void addUser(String id, String name, String tel, String birth, String pwd) {
+
     }
 
     @Override

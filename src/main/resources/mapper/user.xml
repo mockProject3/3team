@@ -4,10 +4,10 @@
 
 <mapper namespace="com.example.reservation.User.UserMapper">
 
-    <select id="login" parameterType="map" resultType="User">
-        select username, userid, email
-        from user
-        where userid = #{userid} and userpwd = #{userpwd}
+    <select id="login" parameterType="hashMap" resultType="com.example.reservation.User">
+        select *
+        from users
+        where userId = #{userId} and userPw = #{userPw}
     </select>
 
 </mapper>
