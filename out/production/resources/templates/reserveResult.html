@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -11,7 +12,20 @@
 <body>
 <th:block th:replace="~{header::header}"/>
 <div class="container" style="margin-top:100px">
-<table class="passenger_list" border="1">
+<h2>예약결과</h2><br>
+예약번호: [[ ${reservation.ticketNum} ]] <br>
+예약시간: [[ ${reservation.ticketDate} ]]
+
+<hr>
+출발지 : [[ ${schedule.departure} ]] <br>
+도착지 : [[ ${schedule.arrival} ]] <br>
+출발날짜 : [[ ${schedule.departureDate} ]] <br>
+출발시간 : [[ ${schedule.departureTime} ]] <br>
+도착시간 : [[ ${schedule.arrivalTime} ]] <br>
+
+<hr>
+
+<table class="table table-bordered">
     <colgroup>
         <col width="15%"/>
         <col width="15%"/>
@@ -23,13 +37,15 @@
     </tr>
     </thead>
     <tbody>
-    <th:block th:each="name : ${names}" >
+    <th:block th:each="passenger : ${passengers}" >
         <tr>
-            <td th:text="${name}"></td>
+            <td th:text="${passenger.passName}"></td>
+            <td th:text="${passenger.passTel}"></td>
         </tr>
     </th:block>
     </tbody>
 </table>
+
 </div>
 </body>
 </html>

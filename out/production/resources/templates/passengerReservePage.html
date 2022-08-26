@@ -2,35 +2,39 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml"
       xmlns:id="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>예약</title>
 </head>
 <body>
+<th:block th:replace="~{header::header}"/>
+<div class="container" style="margin-top:100px">
+    <h2>항공권 예약</h2>
 출발지 : [[ ${schedule.departure} ]] <br>
 도착지 : [[ ${schedule.arrival} ]] <br>
 출발날짜 : [[ ${schedule.departureDate} ]] <br>
 출발시간 : [[ ${schedule.departureTime} ]] <br>
 도착시간 : [[ ${schedule.arrivalTime} ]] <br>
-탑승인원 : [[ ${passengerCount} ]] <br><br><br>
+탑승인원 : [[ ${passengerCount} ]] <br>
 <hr>
 
-<!--<form:form commandName="passenger" action="/passenger/reserve">
-    <th:block th:each="num : ${#numbers.sequence(1,passengerCount)}">
-        탑승자 이름: <input type="text" th:name="|passengerList[${num}].passName|">
-        탑승자 전화번호 : <input type="text" th:name="|passengerList[${num}].passTel|"> <br><br>
-    </th:block>
+<form action="/reservation/reserve" >
+    <input type="hidden" th:value="${schedule.scheduleNum}" name="scheduleNum">
+    <table class="table table-bordered">
+        <th:block th:each="num : ${#numbers.sequence(1,passengerCount)}">
+            <tr>
+                <td> 탑승자 이름: <input type="text" name="passName"></td>
+                <td> 탑승자 전화번호 : <input type="text" name="passTel"> <br><br></td>
+            </tr>
 
-    <input type="submit" value="예매하기">>
-</form:form>
--->
+        </th:block>
+    </table>
 
-<form action="/passenger/reserve" >
-    <th:block th:each="num : ${#numbers.sequence(1,passengerCount)}">
-        탑승자 이름: <input type="text" name="passName">
-        탑승자 전화번호 : <input type="text" name="passTel"> <br><br>
-    </th:block>
-
-    <input type="submit" value="예매하기">>
+    <input type="submit" value="예매하기">
 </form>
+</div>
 </body>
 </html>
