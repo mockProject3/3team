@@ -42,6 +42,8 @@ values ('5C3300', 'ASIANA');
 insert into users(userId, userPw, userName, userTel, userBirth)
 values ('siwan', 'siwan', 'MinSiwan', '01012341234', '830101');
 
+insert into users(userId, userPw, userName, userTel, userBirth)
+values ('admin', 'admin', 'MinSiwan', '01012341234', '830101');
 
 INSERT INTO t_board(title,
                     contents,

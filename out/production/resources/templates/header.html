@@ -22,15 +22,17 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/schedule/page" style="color:white">예매</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/reservation/list" style="color:white">예매내역</a></li>
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact" style="color:white">공지사항</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/board/boardList" style="color:white">공지사항</a></li>
 
           <th:block th:unless="${user}">
             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/join" style="color:white">회원가입</a></li>
             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/login" style="color:white">로그인</a></li>
           </th:block>
           <th:block th:if="${user}">
-            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/join" style="color:white">새 글쓰기</a></li>
-           <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/index">[[${user.userId}]]</a></li>-->
+            <th:block th:if="${user.userId} == 'admin'">
+              <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/board/boardWrite" style="color:white">새 글쓰기</a></li>
+            </th:block>
+            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/reservation/list">[[${user.userId}]]</a></li>
             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/logout" style="color:white">로그아웃</a></li>
           </th:block>
 
