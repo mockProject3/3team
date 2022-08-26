@@ -4,22 +4,22 @@ values ('GMP', 'CJU', 'OZ8901', '2022-08-20', '08:10', '20:30');
 
 
 insert into schedule(departure, arrival, planeName, departureDate, departureTime, arrivalTime)
-values ('GMP', 'CJU', 'OZ7901', '2022-08-24', '06:05', '07:15');
+values ('GMP', 'CJU', 'OZ7901', '2022-08-28', '06:05', '07:15');
 
 insert into schedule(departure, arrival, planeName, departureDate, departureTime, arrivalTime)
-values ('GMP', 'CJU', '1A7777', '2022-08-24', '07:10', '09:11');
+values ('GMP', 'CJU', '1A7777', '2022-08-28', '07:10', '09:11');
 
 insert into schedule(departure, arrival, planeName, departureDate, departureTime, arrivalTime)
-values ('GMP', 'CJU', '1A7777', '2022-08-24', '09:40', '10:20');
+values ('GMP', 'CJU', '1A7777', '2022-08-28', '09:40', '10:20');
 
 insert into schedule(departure, arrival, planeName, departureDate, departureTime, arrivalTime)
-values ('GMP', 'CJU', 'OZ7901', '2022-08-24', '11:05', '13:15');
+values ('GMP', 'CJU', 'OZ7901', '2022-08-28', '11:05', '13:15');
 
 insert into schedule(departure, arrival, planeName, departureDate, departureTime, arrivalTime)
-values ('GMP', 'CJU', '5C3300', '2022-08-24', '15:05', '17:15');
+values ('GMP', 'CJU', '5C3300', '2022-08-28', '15:05', '17:15');
 
 insert into schedule(departure, arrival, planeName, departureDate, departureTime, arrivalTime)
-values ('CJU', 'GMP', 'OY8025', '2022-08-14', '18:45', '19:55');
+values ('CJU', 'GMP', 'OY8025', '2022-08-28', '18:45', '19:55');
 
 insert into schedule(departure, arrival, planeName, departureDate, departureTime, arrivalTime)
 values ('ICN', 'CJU', '1A7777', '2022-08-30', '11:05', '15:15');
