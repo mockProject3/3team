@@ -16,7 +16,7 @@
   <h2>게시글 상세 화면</h2>
   <form id="frm" method="post">
     <table class="board_detail">
-      <caption>게시글 상세 내용</caption>
+      <!--<caption>게시글 상세 내용</caption>-->
       <colgroup>
         <col width="15%">
         <col width="35%">
@@ -42,7 +42,7 @@
       </tr>
       <tr>
         <td colspan="4" class="view_text">
-          <textarea title="내용" id="contents" name="contents" th:text="${board.contents}"></textarea>
+          <textarea style="width:1000px; height:300px" title="내용" id="contents" name="contents" th:text="${board.contents}"></textarea>
         </td>
       </tr>
       </tbody>
