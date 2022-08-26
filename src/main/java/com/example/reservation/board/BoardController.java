@@ -24,9 +24,11 @@ public class BoardController {
     }
 
     @RequestMapping("/board/openBoardDetail")
-    public ModelAndView openBoardDetail(@RequestParam int board_id) throws Exception{
+    public ModelAndView openBoardDetail(HttpServletRequest request, @RequestParam int board_id) throws Exception{
+        User user = (User) request.getSession().getAttribute("user");
         ModelAndView mv = new ModelAndView("/board/boardDetail");
         BoardDto board = boardService.selectBoardDetail(board_id);
+        mv.addObject("user",user);
         mv.addObject("board",board);
         return mv;
     }

@@ -48,7 +48,7 @@ public class ReservationController {
         model.addAttribute("reservation", reservation);
         model.addAttribute("passengers", passengers);
         model.addAttribute("schedule", schedule);
-
+        model.addAttribute("user",user);
         return "reserveResult";
 
     }
@@ -56,6 +56,7 @@ public class ReservationController {
     public String reservationList(HttpServletRequest request, Model model){
         ArrayList<Reservation> reservations;
         User user = (User) request.getSession().getAttribute("user");
+        model.addAttribute("user",user);
         String userId= user.getUserId();
         reservations = reservationService.selectByUserId(userId);
         for (int i = 0; i < reservations.size(); i++){
@@ -71,11 +72,12 @@ public class ReservationController {
         return  "index";
     }
     @RequestMapping("/reservation/detail")
-    public String reservationDetail(@RequestParam int ticketNum, Model model){
+    public String reservationDetail(HttpServletRequest request,@RequestParam int ticketNum, Model model){
         Reservation reservation = reservationService.selectByTicketNum(ticketNum);
         ArrayList<Passenger> passengers = passengerService.selectByTicketNum(ticketNum);
         Schedule schedule = scheduleService.selecByScheduleNum(reservation.getScheduleNum());
-
+        User user = (User) request.getSession().getAttribute("user");
+        model.addAttribute("user",user);
         model.addAttribute("reservation", reservation);
         model.addAttribute("passengers", passengers);
         model.addAttribute("schedule", schedule);
